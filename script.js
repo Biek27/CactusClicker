@@ -13,7 +13,7 @@ function populateTable() {
         const floorCell = row.insertCell(1);
         const rarityCell = row.insertCell(2);
         const attributesCell = row.insertCell(3);
-
+ 
         nameCell.textContent = item.name;
         floorCell.textContent = item.floor;
         rarityCell.textContent = item.rarity;

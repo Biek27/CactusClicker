@@ -6,6 +6,15 @@ const data = [
     {name: 'Blitzzorn', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
 ];
 
+const newData = [
+  {name: 'New Name', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
+  {name: 'Another New Name', floor: 2, rarity: 'Epic', attributes: 'Strength: 30'}
+];
+
+data.push(...newData);
+saveFilters();
+applyFilters();
+
 const filterButtons = document.querySelectorAll('.filter-button');
 
 filterButtons.forEach(button => {

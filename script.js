@@ -5,10 +5,20 @@ const items = [
   // Add more items as needed
 ];
 
-function searchTable(input1, input2) {
-    // Get the search input values for the two filters
-    let searchInput1 = input1.value.toLowerCase();
-    let searchInput2 = input2.value.toLowerCase();
+  function searchTable() {
+    
+  const searchInput1 = document.getElementById("searchInput1");
+  const searchInput2 = document.getElementById("searchInput2");
+
+  // Add event listeners to input elements
+  searchInput1.addEventListener("input", function () {
+    filterTable(searchInput1.value, searchInput2.value);
+  });
+
+  searchInput2.addEventListener("input", function () {
+    filterTable(searchInput1.value, searchInput2.value);
+  });
+
 
     // Loop through each item in the items array
     for (let i = 0; i < items.length; i++) {
@@ -54,3 +64,4 @@ function generateTable(items) {
 
 // Call the function to generate the table using your 'items' array
 generateTable(items);
+window.onload = searchTable;

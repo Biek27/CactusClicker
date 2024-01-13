@@ -13,8 +13,8 @@ function searchTable() {
     tr = table.getElementsByTagName("tr");
 
     // Iterate through each row in the table
-    for (i = 0; i < tr.length; i++) {
-        visible = true;
+    for (i = i; i < tr.length; i++) {
+        visible = false;
 
         // Iterate through each cell in the row
         for (j = 0; j < tr[i].cells.length; j++) {
@@ -25,7 +25,7 @@ function searchTable() {
                 if (td.className === 'name' && td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                     visible = true;
                 } else if (td.className !== 'name' && td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    visible = false;
+                    visible = true;
                 }
             }
         }

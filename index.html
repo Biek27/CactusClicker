@@ -78,8 +78,8 @@
 <body>
 
 <div class="container">
-    <input type="text" id="searchInput1" onkeyup="searchTable(this, document.getElementById('searchInput2'))" placeholder="Suche...">
-    <input type="text" id="searchInput2" onkeyup="searchTable(document.getElementById('searchInput1'), this)" placeholder="Filter...">
+    <input type="text" id="searchInput1" onkeyup="filterTable(document.getElementById('searchInput1'), document.getElementById('searchInput2'))" placeholder="Suche...">
+    <input type="text" id="searchInput2" onkeyup="filterTable(document.getElementById('searchInput1'), document.getElementById('searchInput2'))" placeholder="Filter...">
     <table id="data-table">
         <thead>
             <tr>

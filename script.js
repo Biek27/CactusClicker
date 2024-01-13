@@ -10,7 +10,7 @@ function searchTable() {
  let filter = document.getElementById('searchInput').value.toUpperCase();
   
  // Obtain the table from the DOM
- let table = document.getElementById('myTable');
+ let table = document.getElementById('data-table');
   
  // Iterate through each row in the table
  for (let row of table.rows) {

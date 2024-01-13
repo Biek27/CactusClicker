@@ -5,6 +5,19 @@ const data = [
     {name: 'Example Name', floor: 1, rarity: 'Legendar<', attributes: 'Agility: 20'},
 ];
 
+function addData(name, floor, rarity, attributes) {
+  const newDataItem = {
+    name: name,
+    floor: floor,
+    rarity: rarity,
+    attributes: attributes,
+  };
+
+  data.push(newDataItem);
+  populateTable();
+  saveFilters(); // Save filters after adding new data
+}
+
 
 const filterButtons = document.querySelectorAll('.filter-button');
 
@@ -125,4 +138,5 @@ function filterTable() {
     }
 }
 
+addData("John Doe", 5, "Epic","Schaden +20");
 populateTable();

@@ -4,6 +4,7 @@ const searchInput = document.getElementById('searchInput');
 const data = [
     // Your database data goes here. For example:
     // {name: 'Example Name', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
+    {name: 'Blitzzorn', floor: 7, rarity: 'Legendary', attributes: 'Agility: 20'}
 ];
 
 function populateTable() {

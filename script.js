@@ -14,7 +14,7 @@ const items = [
   { name: 'Azurblitz', level: 1, rarity: 'Legendär', property: '+50 Basisschaden, +0.04 Charakter Erfahrung, +1.11% Lebensentzug, +1.04% Kritischtrefferchance' },
   { name: 'Sternenlicht Beinkleider', level: 1, rarity: 'Legendär', property: '+4 Kritischtrefferchancelevel, +1.04% Kritischtrefferchance, +44 Axtschaden, +0.05 Respawnrate' },
   
-  { name: 'Klassische Lederschultern', level: 2, rarity: 'Außergewöhnlich', property: '+1.04% Drop Chance' },
+  { name: 'Dummy', level: 2, rarity: 'Dummy', property: 'Dummy' },
 
 
 

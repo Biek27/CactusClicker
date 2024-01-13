@@ -6,7 +6,7 @@ const items = [
 ];
 
  function filterTable(input1, input2) {
-  const table = document.getElementById("data-table");
+  const table = document.getElementById('data-table');
   const rows = table.rows;
 
   for (let i = 1; i < rows.length; i++) {

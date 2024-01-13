@@ -8,14 +8,19 @@
 </head>
 <body>
     <h1>Database Filter</h1>
-    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for kategories..">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Suche...">
 
+    <button id="filter-name" class="filter-button">Name</button>
+    <button id="filter-Ebene" class="filter-button">Ebene</button>
+    <button id="filter-rarity" class="filter-button">Rarity</button>
+    <button id="filter-Eigenschaften" class="filter-button">Eigenschaften</button>
+    
     <table id="kategoryTable">
         <tr>
             <th>Name</th>
-            <th>Floor</th>
+            <th>Ebene</th>
             <th>Rarity</th> 
-            <th>Attributes</th>
+            <th>Eigenschaften</th>
         </tr>
         <!-- The table data will be populated by the script.js file -->
     </table>

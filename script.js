@@ -6,22 +6,34 @@ const items = [
 ];
 
 function searchTable() {
-    let input, filter, table, tr, td, i, txtValue;
+    let input, filter, table, tr, td, i, j, visible;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("data-table");
     tr = table.getElementsByTagName("tr");
-  
+
+    // Iterate through each row in the table
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0]; // Modify this line to match the column you want to search in
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
+        visible = false;
+
+        // Iterate through each cell in the row
+        for (j = 0; j < tr[i].cells.length; j++) {
+            td = tr[i].cells[j];
+
+            // If the cell content contains the filter string, make the row visible
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    visible = true;
+                }
             }
-        }       
+        }
+
+        // Update the visibility of the row
+        if (visible) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
     }
 }
 // Insert this function into your script.js file

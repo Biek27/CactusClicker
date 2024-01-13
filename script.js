@@ -7,7 +7,7 @@ const items = [
 
 function searchTable() {
   // Obtain the filter string from the user input field
-  let filter = document.getElementById('searchInput').value.toUpperCase();
+  let filter = document.getElementById('searchInput1').value.toUpperCase();
 
   // Obtain the table from the DOM
   let table = document.getElementById('data-table');

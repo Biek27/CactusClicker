@@ -58,3 +58,4 @@ function generateTable(items) {
 
 // Call the function to generate the table using your 'items' array
 generateTable(items);
+searchTable();

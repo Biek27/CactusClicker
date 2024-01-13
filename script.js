@@ -1,22 +1,49 @@
-let dummyItems = populateDummyItems();
+const kategoryTable = document.getElementById('kategoryTable');
+const searchInput = document.getElementById('searchInput');
 
-// Function to filter and display items
-function filterFunction() {
-    let filter = document.getElementById('search-criteria').value.toUpperCase();
-    let ul = document.getElementById('items-list');
+const data = [
+    // Your database data goes here. For example:
+    // {name: 'Example Name', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
+];
 
-    ul.innerHTML = '';
+function populateTable() {
+    data.forEach(item => {
+        const row = kategoryTable.insertRow();
+        const nameCell = row.insertCell(0);
+        const floorCell = row.insertCell(1);
+        const rarityCell = row.insertCell(2);
+        const attributesCell = row.insertCell(3);
 
-    for (let i = 0; i < dummyItems.length; i++) {
-        let itemName = dummyItems[i].name;
-        let li = document.createElement('li');
+        nameCell.textContent = item.name;
+        floorCell.textContent = item.floor;
+        rarityCell.textContent = item.rarity;
+        attributesCell.textContent = item.attributes;
+    });
+}
 
-        if (itemName.toUpperCase().indexOf(filter) > -1) {
-            li.appendChild(document.createTextNode(itemName));
-            ul.appendChild(li);
+function filterTable() {
+    const filter = searchInput.value.toUpperCase();
+    const tableRows = kategoryTable.getElementsByTagName('tr');
+
+    for (let i = 0; i < tableRows.length; i++) {
+        const tableRow = tableRows[i];
+        const tableRowCells = tableRow.getElementsByTagName('td');
+
+        for (let j = 0; j < tableRowCells.length; j++) {
+            const tableRowCell = tableRowCells[j];
+
+            if (tableRowCell) {
+                const cellText = tableRowCell.textContent || tableRowCell.innerText;
+
+                if (cellText.toUpperCase().indexOf(filter) > -1) {
+                    tableRow.style.display = '';
+                    break;
+                } else {
+                    tableRow.style.display = 'none';
+                }
+            }
         }
     }
 }
 
-// Event listener for search input
-document.getElementById('search-input').addEventListener('keyup', filterFunction);
+populateTable();

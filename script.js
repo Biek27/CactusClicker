@@ -5,6 +5,33 @@ const items = [
   // Add more items as needed
 ];
 
+function searchTable() {
+  // Obtain the filter string from the user input field
+  let filter = document.getElementById('searchInput').value.toUpperCase();
+
+  // Obtain the table from the DOM
+  let table = document.getElementById('data-table');
+
+  // Iterate through each row in the table
+  for (let row of table.rows) {
+    // Skip the header row (assumed to be the first row)
+    if (row.rowIndex === 0) continue;
+
+    // Set the initial display of each row to "none"
+    row.style.display = 'none';
+
+    // Iterate through each cell in the row
+    for (let cell of row.cells) {
+      // Check if the cell contains the filter string
+      if (cell.textContent.toUpperCase().indexOf(filter) > -1) {
+        // If so, show the row by setting its display to "table-row"
+        row.style.display = 'table-row';
+        break;
+      }
+    }
+  }
+}
+
 function generateTable(items) {
     let tbody = document.getElementById("data-table").getElementsByTagName("tbody")[0];
     let tr, td; 

@@ -1,142 +1,46 @@
-const kategoryTable = document.getElementById('kategoryTable');
-const searchInput = document.getElementById('searchInput');
-
-const data = [
-    {name: 'Example Name', floor: '1', rarity: 'Legendary', attributes: 'Agility: 20'},
+const items = [
+  { name: 'Item 1', level: 1, rarity: 'Common', property: 'A' },
+  { name: 'Item 2', level: 2, rarity: 'Rare', property: 'B' },
+  { name: 'Item 3', level: 3, rarity: 'Epic', property: 'A' },
+  // ... add more items here
 ];
 
-function addData(name, floor, rarity, attributes) {
-  const newDataItem = {
-    name: name,
-    floor: floor,
-    rarity: rarity,
-    attributes: attributes,
-  };
+// Reference the HTML elements
+const nameFilter = document.getElementById('name-filter');
+const levelFilter = document.getElementById('level-filter');
+const rarityFilter = document.getElementById('rarity-filter');
+const propertyFilter = document.getElementById('property-filter');
+const itemsTableBody = document.getElementById('items-table').getElementsByTagName('tbody')[0];
 
-  data.push(newDataItem);
-  populateTable();
-  saveFilters(); // Save filters after adding new data
-}
-
-
-const filterButtons = document.querySelectorAll('.filter-button');
-
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const filterId = button.id;
-    toggleFilter(filterId);
+// Populate the table with items
+function populateTable(items) {
+  itemsTableBody.innerHTML = '';
+  items.forEach(item => {
+    const row = itemsTableBody.insertRow();
+    row.insertCell().textContent = item.name;
+    row.insertCell().textContent = item.level;
+    row.insertCell().textContent = item.rarity;
+    row.insertCell().textContent = item.property;
   });
-});
-
-const unlockFilterButtons = document.querySelectorAll('.unlock-filter-button');
-
-unlockFilterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const filterId = button.id.replace('unlock-', '');
-    delete filters[filterId];
-    saveFilters();
-  });
-});
-
-const filters = {};
-
-function toggleFilter(filterId) {
-  if (filters[filterId]) {
-    delete filters[filterId];
-  } else {
-    filters[filterId] = true;
-  }
-
-  applyFilters();
 }
 
-function displayData(dataArray) {
- let output = '<ul>';
-  
- dataArray.forEach(item => {
-    output += `<li>Name: ${item.name}, Floor: ${item.floor}, Rarity: ${item.rarity}, Attributes: ${item.attributes}</li>`;
- });
-  
- output += '</ul>';
-  
- return output;
-}
-
-// Use the function to display the data
-document.getElementById('display-area').innerHTML = displayData(data);
-
+// Apply filters and populate the table
 function applyFilters() {
-  const filteredData = data.filter(item => {
-    return Object.keys(filters).every(filterId => {
-      if (filterId === 'filter-name') {
-        return item.name.toLowerCase().includes(filters[filterId].toLowerCase());
-      } else if (filterId === 'filter-floor') {
-        return item.floor === filters[filterId];
-      } else if (filterId === 'filter-rarity') {
-        return item.rarity === filters[filterId];
-      } else if (filterId === 'filter-attributes') {
-        return item.attributes.includes(filters[filterId]);
-      }
-    });
+  const filteredItems = items.filter(item => {
+    const nameMatch = !nameFilter.value || item.name.toLowerCase().includes(nameFilter.value.toLowerCase());
+    const levelMatch = !levelFilter.value || item.level === parseInt(levelFilter.value);
+    const rarityMatch = !rarityFilter.value || item.rarity === rarityFilter.value;
+    const propertyMatch = !propertyFilter.value || item.property === propertyFilter.value;
+    return nameMatch && levelMatch && rarityMatch && propertyMatch;
   });
-
-  displayData(filteredData);
+  populateTable(filteredItems);
 }
 
-function saveFilters() {
-  localStorage.setItem('filters', JSON.stringify(filters));
-}
+// Event listeners for filter inputs
+nameFilter.addEventListener('input', applyFilters);
+levelFilter.addEventListener('input', applyFilters);
+rarityFilter.addEventListener('change', applyFilters);
+propertyFilter.addEventListener('change', applyFilters);
 
-function loadFilters() {
-  const savedFilters = localStorage.getItem('filters');
-  if (savedFilters) {
-    filters = JSON.parse(savedFilters);
-  }
-
-  applyFilters();
-}
-
-loadFilters();
-
-function populateTable() {
-    data.forEach(item => {
-        const row = kategoryTable.insertRow();
-        const nameCell = row.insertCell(0);
-        const floorCell = row.insertCell(1);
-        const rarityCell = row.insertCell(2);
-        const attributesCell = row.insertCell(3);
- 
-        nameCell.textContent = item.name;
-        floorCell.textContent = item.floor;
-        rarityCell.textContent = item.rarity;
-        attributesCell.textContent = item.attributes;
-    });
-}
-
-function filterTable() {
-    const filter = searchInput.value.toUpperCase();
-    const tableRows = kategoryTable.getElementsByTagName('tr');
-
-    for (let i = 0; i < tableRows.length; i++) {
-        const tableRow = tableRows[i];
-        const tableRowCells = tableRow.getElementsByTagName('td');
-
-        for (let j = 0; j < tableRowCells.length; j++) {
-            const tableRowCell = tableRowCells[j];
-
-            if (tableRowCell) {
-                const cellText = tableRowCell.textContent || tableRowCell.innerText;
-
-                if (cellText.toUpperCase().indexOf(filter) > -1) {
-                    tableRow.style.display = '';
-                    break;
-                } else {
-                    tableRow.style.display = 'none';
-                }
-            }
-        }
-    }
-}
-
-addData("John Doe", "5", "Epic","Schaden +20");
-populateTable();
+// Initialize the table with all items
+populateTable(items);

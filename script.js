@@ -2,7 +2,7 @@ const kategoryTable = document.getElementById('kategoryTable');
 const searchInput = document.getElementById('searchInput');
 
 const data = [
-    {name: 'Example Name', floor: 1, rarity: 'Legendar<', attributes: 'Agility: 20'},
+    {name: 'Example Name', floor: 1, rarity: 'Legendary', attributes: 'Agility: 20'},
 ];
 
 function addData(name, floor, rarity, attributes) {
@@ -138,5 +138,5 @@ function filterTable() {
     }
 }
 
-addData("John Doe", 5, "Epic","Schaden +20");
+addData("John Doe", "5", "Epic","Schaden +20");
 populateTable();

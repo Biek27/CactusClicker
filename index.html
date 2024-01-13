@@ -1,48 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Filter Table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 0.5rem;
+            text-align: left;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: normal;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        @media (max-width: 768px) {
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            th,
+            td {
+                padding: 0.5rem;
+                border: none;
+            }
+
+            th {
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+
+            tr {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div>
-    <label for="name-filter">Name:</label>
-    <input type="text" id="name-filter" />
 
-    <label for="level-filter">Level:</label>
-    <input type="number" id="level-filter" min="1" max="10" />
+<div class="container">
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Level</th>
+                <th>Rarity</th>
+                <th>Property</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add your rows here, or use JavaScript to add them -->
+        </tbody>
+    </table>
+</div>
 
-    <label for="rarity-filter">Rarity:</label>
-    <select id="rarity-filter">
-      <option value="">-- All --</option>
-      <option value="Common">Common</option>
-      <option value="Rare">Rare</option>
-      <option value="Epic">Epic</option>
-      <!-- Add more rarity options here -->
-    </select>
-
-    <label for="property-filter">Property:</label>
-    <select id="property-filter">
-      <option value="">-- All --</option>
-      <option value="A">A</option>
-      <option value="B">B</option>
-      <!-- Add more property options here -->
-    </select>
-  </div>
-
-  <table id="items-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Level</th>
-        <th>Rarity</th>
-        <th>Property</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <script src="script.js"></script>
 </body>
 </html>

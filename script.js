@@ -1,46 +1,59 @@
-const items = [
+// Create an array of items
+let items = [
   { name: 'Item 1', level: 1, rarity: 'Common', property: 'A' },
   { name: 'Item 2', level: 2, rarity: 'Rare', property: 'B' },
   { name: 'Item 3', level: 3, rarity: 'Epic', property: 'A' },
   // ... add more items here
 ];
 
-// Reference the HTML elements
-const nameFilter = document.getElementById('name-filter');
-const levelFilter = document.getElementById('level-filter');
-const rarityFilter = document.getElementById('rarity-filter');
-const propertyFilter = document.getElementById('property-filter');
-const itemsTableBody = document.getElementById('items-table').getElementsByTagName('tbody')[0];
 
-// Populate the table with items
-function populateTable(items) {
-  itemsTableBody.innerHTML = '';
-  items.forEach(item => {
-    const row = itemsTableBody.insertRow();
-    row.insertAdjacentHTML('beforeend', `<td>${item.name}</td>`);
-    row.insertAdjacentHTML('beforeend', `<td>${item.level}</td>`);
-    row.insertAdjacentHTML('beforeend', `<td>${item.rarity}</td>`);
-    row.insertAdjacentHTML('beforeend', `<td>${item.property}</td>`);
-  });
+// Create a function to render the table
+function renderTable() {
+ const tableBody = document.getElementById('items-table').tBodies[0];
+ tableBody.innerHTML = '';
+
+ for (const item of items) {
+    const row = tableBody.insertRow();
+    row.insertCell().textContent = item.name;
+    row.insertCell().textContent = item.level;
+    row.insertCell().textContent = item.rarity;
+    row.insertCell().textContent = item.property;
+ }
 }
 
-// Apply filters and populate the table
-function applyFilters() {
-  const filteredItems = items.filter(item => {
-    const nameMatch = !nameFilter.value || item.name.toLowerCase().includes(nameFilter.value.toLowerCase());
-    const levelMatch = !levelFilter.value || item.level === parseInt(levelFilter.value);
-    const rarityMatch = !rarityFilter.value || item.rarity === rarityFilter.value;
-    const propertyMatch = !propertyFilter.value || item.property === propertyFilter.value;
-    return nameMatch && levelMatch && rarityMatch && propertyMatch;
-  });
-  populateTable(filteredItems);
+// Create a function to filter the items
+function filterItems() {
+ const nameFilter = document.getElementById('name-filter').value.toLowerCase();
+ const levelFilter = document.getElementById('level-filter').value;
+ const rarityFilter = document.getElementById('rarity-filter').value;
+ const propertyFilter = document.getElementById('property-filter').value;
+
+ let filteredItems = items.filter(item =>
+    item.name.toLowerCase().includes(nameFilter) &&
+    item.level == levelFilter &&
+    item.rarity == rarityFilter &&
+    item.property == propertyFilter
+ );
+
+ return filteredItems;
 }
 
-// Event listeners for filter inputs
-nameFilter.addEventListener('input', applyFilters);
-levelFilter.addEventListener('input', applyFilters);
-rarityFilter.addEventListener('change', applyFilters);
-propertyFilter.addEventListener('change', applyFilters);
+// Add event listeners to the filter input fields
+document.getElementById('name-filter').addEventListener('input', () => {
+ renderTable(filterItems());
+});
 
-// Initialize the table with all items
-populateTable(items);
+document.getElementById('level-filter').addEventListener('input', () => {
+ renderTable(filterItems());
+});
+
+document.getElementById('rarity-filter').addEventListener('input', () => {
+ renderTable(filterItems());
+});
+
+document.getElementById('property-filter').addEventListener('input', () => {
+ renderTable(filterItems());
+});
+
+// Call the renderTable function initially to display the table
+renderTable();

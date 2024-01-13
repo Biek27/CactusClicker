@@ -1,3 +1,10 @@
+const items = [
+  { name: 'Item 1', level: 1, rarity: 'common', property: 'A' },
+  { name: 'Item 2', level: 2, rarity: 'uncommon', property: 'B 3' },
+  { name: 'Item 3', level: 3, rarity: 'rare', property: 'C 2' },
+  // Add more items as needed
+];
+
 // Create a function to filter the items
 function filterItems() {
  const nameFilter = document.getElementById('name-filter').value.toLowerCase();

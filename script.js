@@ -37,6 +37,21 @@ function toggleFilter(filterId) {
   applyFilters();
 }
 
+function displayData(dataArray) {
+ let output = '<ul>';
+  
+ dataArray.forEach(item => {
+    output += `<li>Name: ${item.name}, Floor: ${item.floor}, Rarity: ${item.rarity}, Attributes: ${item.attributes}</li>`;
+ });
+  
+ output += '</ul>';
+  
+ return output;
+}
+
+// Use the function to display the data
+document.getElementById('display-area').innerHTML = displayData(data);
+
 function applyFilters() {
   const filteredData = data.filter(item => {
     return Object.keys(filters).every(filterId => {

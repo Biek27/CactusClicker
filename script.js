@@ -3,17 +3,8 @@ const searchInput = document.getElementById('searchInput');
 
 const data = [
     {name: 'Example Name', floor: 1, rarity: 'Legendar<', attributes: 'Agility: 20'},
-    {name: 'Blitzzorn', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
 ];
 
-const newData = [
-  {name: 'New Name', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
-  {name: 'Another New Name', floor: 2, rarity: 'Epic', attributes: 'Strength: 30'}
-];
-
-data.push(...newData);
-saveFilters();
-applyFilters();
 
 const filterButtons = document.querySelectorAll('.filter-button');
 

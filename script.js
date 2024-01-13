@@ -32,9 +32,9 @@ function searchTable() {
 
         // Update the visibility of the row
         if (visible) {
-            tr[i].style.display = "";
-        } else {
             tr[i].style.display = "none";
+        } else {
+            tr[i].style.display = "";
         }
     }
 }

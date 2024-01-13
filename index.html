@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database Filter</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter Table</title>
 </head>
 <body>
-    <h1>Database Filter</h1>
-    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Suche...">
+  <div>
+    <label for="name-filter">Name:</label>
+    <input type="text" id="name-filter" />
 
-    <button id="filter-name" class="filter-button">Name</button>
-    <button id="filter-Ebene" class="filter-button">Ebene</button>
-    <button id="filter-rarity" class="filter-button">Rarity</button>
-    <button id="filter-Eigenschaften" class="filter-button">Eigenschaften</button>
-    <button id="unlock-filter-name" class="unlock-filter-button">Filter löschen</button>
-    
-    <table id="kategoryTable">
-        <tr>
-            <th>Name</th>
-            <th>Ebene</th>
-            <th>Rarity</th> 
-            <th>Eigenschaften</th>
-        </tr>
-        <!-- The table data will be populated by the script.js file -->
-    </table>
+    <label for="level-filter">Level:</label>
+    <input type="number" id="level-filter" min="1" max="10" />
 
-    <script src="script.js"></script>
+    <label for="rarity-filter">Rarity:</label>
+    <select id="rarity-filter">
+      <option value="">-- All --</option>
+      <option value="Common">Common</option>
+      <option value="Rare">Rare</option>
+      <option value="Epic">Epic</option>
+      <!-- Add more rarity options here -->
+    </select>
+
+    <label for="property-filter">Property:</label>
+    <select id="property-filter">
+      <option value="">-- All --</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <!-- Add more property options here -->
+    </select>
+  </div>
+
+  <table id="items-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Rarity</th>
+        <th>Property</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Include the JavaScript code below or in an external file -->
 </body>
 </html>

@@ -7,7 +7,7 @@ const items = [
 
 function generateTable(items) {
     let tbody = document.getElementById("data-table").getElementsByTagName("tbody")[0];
-    let tr, td;
+    let tr, td; 
 
     // Empty the table body
     tbody.innerHTML = "";

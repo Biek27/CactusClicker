@@ -13,7 +13,7 @@ function searchTable() {
     tr = table.getElementsByTagName("tr");
 
     // Iterate through each row in the table
-    for (i = i; i < tr.length; i++) {
+    for (i = 1; i < tr.length; i++) {
         visible = false;
 
         // Iterate through each cell in the row

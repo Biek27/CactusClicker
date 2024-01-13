@@ -6,30 +6,26 @@ const items = [
 ];
 
 function searchTable() {
-    // Get the search input value
-    let searchInput = document.getElementById('searchInput').value.toLowerCase();
+  // Get the search input values for the two filters
+let searchInput1 = document.getElementById('searchInput1').value.toLowerCase();
+let searchInput2 = document.getElementById('searchInput2').value.toLowerCase();
 
-    // Get all the rows of the table, except the header row
-    let tableRows = document.getElementById('data-table-body').rows;
+// Loop through each item in the items array
+for (let i = 0; i < items.length; i++) {
+    // Get the current item
+    let item = items[i];
 
-    // Loop through each item in the items array
-    for (let i = 0; i < items.length; i++) {
-        // Get the current item
-        let item = items[i];
+    // Set the default visibility of the row to hidden
+    let row = tableRows[i];
+    row.style.display = "none";
 
-        // Set the default visibility of the row to hidden
-        let row = tableRows[i];
-        row.style.display = "none";
-
-        // Check if the search input is a substring of any property of the item
-        if (item.name.toLowerCase().indexOf(searchInput) !== -1 ||
-            item.level.toString().indexOf(searchInput) !== -1 ||
-            item.rarity.toLowerCase().indexOf(searchInput) !== -1 ||
-            item.property.toLowerCase().indexOf(searchInput) !== -1) {
-            // If a match is found, enable the visibility of the row
-            row.style.display = "";
-        }
+    // Check if the search input values are substrings of any property of the item
+    if ((searchInput1 === "" || item.rarity.toLowerCase().indexOf(searchInput1) !== -1) &&
+        (searchInput2 === "" || item.property.toLowerCase().indexOf(searchInput2) !== -1)) {
+        // If both matches are found, enable the visibility of the row
+        row.style.display = "";
     }
+  }
 }
 
 function generateTable(items) {

@@ -1,5 +1,5 @@
 const items = [
-  { name: 'Stählerner Handschuh', level: 1, rarity: 'Selten', property: '+33 Axtschaden\n+1.11% Seelen Ertrag' },
+  { name: 'Stählerner Handschuh', level: 1, rarity: 'Selten', property: '+33 Axtschaden, +1.11% Seelen Ertrag' },
   { name: 'Item 2', level: 2, rarity: 'uncommon', property: 'B 3' },
   { name: 'Item 3', level: 3, rarity: 'rare', property: 'C 2' },
   // Add more items as needed

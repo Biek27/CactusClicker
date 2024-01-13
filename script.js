@@ -2,6 +2,10 @@ const kategoryTable = document.getElementById('kategoryTable');
 const searchInput = document.getElementById('searchInput');
 
 const data = [
+    {name: 'Example Name', floor: 1, rarity: 'Legendar<', attributes: 'Agility: 20'},
+    {name: 'Blitzzorn', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
+    {name: 'Example Name2', floor: 1, rarity: 'Epic', attributes: 'Schwertschaden +1.07%'},
+    {name: 'Example Name', floor: 1, rarity: 'Rare', attributes: 'Basisschaden +53'},
     {name: 'Example Name', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
 ];
 

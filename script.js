@@ -6,40 +6,30 @@ const items = [
 ];
 
 function searchTable() {
-    let input, filter, table, tr, td, i, j, visible;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("data-table");
-    tr = table.getElementsByTagName("tr");
-
-    // Iterate through each row in the table
-    for (i = 0; i < tr.length; i++) {
-        visible = false;
-
-        // Iterate through each cell in the row
-        for (j = 0; j < tr[i].cells.length; j++) {
-            td = tr[i].cells[j];
-
-            // If the cell content contains the filter string, make the row visible
-            if (td) {
-                if (td.className === 'name' && td.innerHTML.toUpperCase().indexOf(filter) === -1) {
-                    continue;
-                } else if (td.className !== 'name' && td.innerHTML.toUpperCase().indexOf(filter) === -1) {
-                    continue;
-                }
-            }
-
-            // Update the visibility of the row
-            visible = true;
-            tr[i].style.display = "";
-            break;
-        }
-
-        // Hide the row if the filter string is not found in any cell
-        if (!visible) {
-            tr[i].style.display = "none";
-        }
+ // Obtain the filter string from the user input field
+ let filter = document.getElementById('searchInput').value.toUpperCase();
+  
+ // Obtain the table from the DOM
+ let table = document.getElementById('myTable');
+  
+ // Iterate through each row in the table
+ for (let row of table.rows) {
+    // Skip the header row (assumed to be the first row)
+    if (row.rowIndex === 0) continue;
+    
+    // Reset the display of each row to "table-row" (default display)
+    row.style.display = 'table-row';
+    
+    // Iterate through each cell in the row
+    for (let cell of row.cells) {
+      // Check if the cell contains the filter string
+      if (cell.textContent.toUpperCase().indexOf(filter) > -1) {
+        // If so, hide the row by setting its display to "none"
+        row.style.display = 'none';
+        break;
+      }
     }
+ }
 }
 
 function generateTable(items) {

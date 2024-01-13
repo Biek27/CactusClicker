@@ -13,7 +13,7 @@ function searchTable() {
     tr = table.getElementsByTagName("tr");
 
     // Iterate through each row in the table
-    for (i = 1; i < tr.length; i++) {
+    for (i = 0; i < tr.length; i++) {
         visible = false;
 
         // Iterate through each cell in the row
@@ -22,19 +22,22 @@ function searchTable() {
 
             // If the cell content contains the filter string, make the row visible
             if (td) {
-                if (td.className === 'name' && td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    visible = true;
-                } else if (td.className !== 'name' && td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    visible = true;
+                if (td.className === 'name' && td.innerHTML.toUpperCase().indexOf(filter) === -1) {
+                    continue;
+                } else if (td.className !== 'name' && td.innerHTML.toUpperCase().indexOf(filter) === -1) {
+                    continue;
                 }
             }
+
+            // Update the visibility of the row
+            visible = true;
+            tr[i].style.display = "";
+            break;
         }
 
-        // Update the visibility of the row
-        if (visible) {
+        // Hide the row if the filter string is not found in any cell
+        if (!visible) {
             tr[i].style.display = "none";
-        } else {
-            tr[i].style.display = "";
         }
     }
 }

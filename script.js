@@ -5,27 +5,27 @@ const items = [
   // Add more items as needed
 ];
 
-function searchTable() {
-  // Get the search input values for the two filters
-let searchInput1 = document.getElementById('searchInput1').value.toLowerCase();
-let searchInput2 = document.getElementById('searchInput2').value.toLowerCase();
+function searchTable(input1, input2) {
+    // Get the search input values for the two filters
+    let searchInput1 = input1.value.toLowerCase();
+    let searchInput2 = input2.value.toLowerCase();
 
-// Loop through each item in the items array
-for (let i = 0; i < items.length; i++) {
-    // Get the current item
-    let item = items[i];
+    // Loop through each item in the items array
+    for (let i = 0; i < items.length; i++) {
+        // Get the current item
+        let item = items[i];
 
-    // Set the default visibility of the row to hidden
-    let row = tableRows[i];
-    row.style.display = "none";
+        // Set the default visibility of the row to hidden
+        let row = tableRows[i];
+        row.style.display = "none";
 
-    // Check if the search input values are substrings of any property of the item
-    if ((searchInput1 === "" || item.rarity.toLowerCase().indexOf(searchInput1) !== -1) &&
-        (searchInput2 === "" || item.property.toLowerCase().indexOf(searchInput2) !== -1)) {
-        // If both matches are found, enable the visibility of the row
-        row.style.display = "";
+        // Check if the search input values are substrings of any property of the item
+        if ((searchInput1 === "" || item.rarity.toLowerCase().indexOf(searchInput1) !== -1) &&
+            (searchInput2 === "" || item.property.toLowerCase().indexOf(searchInput2) !== -1)) {
+            // If both matches are found, enable the visibility of the row
+            row.style.display = "";
+        }
     }
-  }
 }
 
 function generateTable(items) {

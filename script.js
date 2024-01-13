@@ -5,6 +5,60 @@ const data = [
     {name: 'Example Name', floor: 1, rarity: 'Rare', attributes: 'Agility: 20'},
 ];
 
+const filterButtons = document.querySelectorAll('.filter-button');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filterId = button.id;
+    toggleFilter(filterId);
+  });
+});
+
+const filters = {};
+
+function toggleFilter(filterId) {
+  if (filters[filterId]) {
+    delete filters[filterId];
+  } else {
+    filters[filterId] = true;
+  }
+
+  applyFilters();
+}
+
+function applyFilters() {
+  const filteredData = data.filter(item => {
+    return Object.keys(filters).every(filterId => {
+      if (filterId === 'filter-name') {
+        return item.name.toLowerCase().includes(filters[filterId].toLowerCase());
+      } else if (filterId === 'filter-floor') {
+        return item.floor === filters[filterId];
+      } else if (filterId === 'filter-rarity') {
+        return item.rarity === filters[filterId];
+      } else if (filterId === 'filter-attributes') {
+        return item.attributes.includes(filters[filterId]);
+      }
+    });
+  });
+
+  displayData(filteredData);
+}
+
+function saveFilters() {
+  localStorage.setItem('filters', JSON.stringify(filters));
+}
+
+function loadFilters() {
+  const savedFilters = localStorage.getItem('filters');
+  if (savedFilters) {
+    filters = JSON.parse(savedFilters);
+  }
+
+  applyFilters();
+}
+
+loadFilters();
+
 function populateTable() {
     data.forEach(item => {
         const row = kategoryTable.insertRow();

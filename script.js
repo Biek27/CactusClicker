@@ -14,6 +14,16 @@ filterButtons.forEach(button => {
   });
 });
 
+const unlockFilterButtons = document.querySelectorAll('.unlock-filter-button');
+
+unlockFilterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filterId = button.id.replace('unlock-', '');
+    delete filters[filterId];
+    saveFilters();
+  });
+});
+
 const filters = {};
 
 function toggleFilter(filterId) {

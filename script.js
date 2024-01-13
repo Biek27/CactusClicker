@@ -17,14 +17,10 @@ function populateTable(items) {
   itemsTableBody.innerHTML = '';
   items.forEach(item => {
     const row = itemsTableBody.insertRow();
-    const nameCell = row.insertCell();
-    nameCell.textContent = item.name;
-    const levelCell = row.insertCell();
-    levelCell.textContent = item.level;
-    const rarityCell = row.insertCell();
-    rarityCell.textContent = item.rarity;
-    const propertyCell = row.insertCell();
-    propertyCell.textContent = item.property;
+    row.insertAdjacentHTML('beforeend', `<td>${item.name}</td>`);
+    row.insertAdjacentHTML('beforeend', `<td>${item.level}</td>`);
+    row.insertAdjacentHTML('beforeend', `<td>${item.rarity}</td>`);
+    row.insertAdjacentHTML('beforeend', `<td>${item.property}</td>`);
   });
 }
 

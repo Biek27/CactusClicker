@@ -14,10 +14,38 @@ const items = [
   { name: 'Azurblitz', level: 1, rarity: 'Legendär', property: '+50 Basisschaden, +0.04 Charakter Erfahrung, +1.11% Lebensentzug, +1.04% Kritischtrefferchance' },
   { name: 'Sternenlicht Beinkleider', level: 1, rarity: 'Legendär', property: '+4 Kritischtrefferchancelevel, +1.04% Kritischtrefferchance, +44 Axtschaden, +0.05 Respawnrate' },
   
-  { name: 'Dummy', level: 2, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Mondschatten-Lederschutz', level: 2, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Donnerkraft-Ledergürtel', level: 2, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Mitternachts Beinschützer', level: 2, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Sternenlicht Brustplatte', level: 2, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Nebenlverhangene Lederschultern', level: 2, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Ätherischer Lederriemen', level: 2, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Präzisionsstahl', level: 2, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Armbrust des Jägermanns', level: 2, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Geprägt Panzerschultern', level: 2, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Harpyienstachel', level: 2, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Klassische Lederschultern', level: 2, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Königsklinge', level: 2, rarity: 'Selten', property: 'Dummy' },
+  
+  { name: 'Bauchstecher', level: 3, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Imperiale Plattentretter', level: 3, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Klare Lederschulterpolster', level: 3, rarity: 'Außergewöhnlich', property: 'Dummy' },
+  { name: 'Schlichte Lederschulterhaube', level: 3, rarity: 'Selten', property: 'Dummy' },
+  { name: 'Auroras Schritte', level: 3, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Titanumhüllte Lederfinger', level: 3, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Dämmerstahl Panzerhandschuhe', level: 3, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Vampirsäbel', level: 3, rarity: 'Legendär', property: 'Dummy' },
+  { name: 'Aurora-Flügelriemen', level: 3, rarity: 'Legendär', property: 'Dummy' },
+  
+  { name: 'Dummy', level: 4, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Dummy', level: 4, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Dummy', level: 4, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Dummy', level: 4, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Dummy', level: 4, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Dummy', level: 4, rarity: 'Dummy', property: 'Dummy' },
+  { name: 'Dummy', level: 4, rarity: 'Dummy', property: 'Dummy' },
 
-
-
+  
   // Add more items as needed
 ];
 

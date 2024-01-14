@@ -77,6 +77,7 @@ function searchTable() {
   }
 }
 
+
 function generateTable(items) {
     let tbody = document.getElementById("data-table").getElementsByTagName("tbody")[0];
     let tr, td; 
@@ -120,3 +121,27 @@ function generateTable(items) {
 // Call the function to generate the table using your 'items' array
 generateTable(items);                         
 searchTable();
+
+ // Obtain the table from the DOM
+  let table = document.getElementById('data-table');
+
+  // Iterate through each row in the table
+  for (let row of table.rows) {
+      // Skip the header row (the first row)
+      if (row.rowIndex === 0) continue;
+      // Iterate through each cell in the row
+    
+    for (let cell of row.cells) {
+      // Check if the cell contains the filter string
+      if (cell.textContent.toLowerCase().indexOf("außergewöhnlich") > -1) {
+        row.classList.add('cell-uncommon');
+      } 
+      if (cell.textContent.toLowerCase().indexOf("selten") > -1) {
+        row.classList.add('cell-rare');
+      }
+      if (cell.textContent.toLowerCase().indexOf("episch") > -1) {
+        row.classList.add('cell-epic');
+      }
+      if (cell.textContent.toLowerCase().indexOf("legendär") > -1) {
+        row.classList.add('cell-legendary');
+      }

@@ -70,6 +70,25 @@ function searchTable() {
       if (cell.textContent.toUpperCase().indexOf(filter) > -1) {
         // If so, show the row by setting its display to "table-row"
         row.style.display = 'table-row';
+
+        // Remove any Existing Backgroundcolor to avoid unexpected results
+        cell.classList.remove('cell-rare', 'cell-epic', 'cell-legendary', 'cell-uncommon', 'cell-common');
+
+        // Add Backgroundcolors dependent of the Cell's Content
+        switch (cell.textContent.toLowerCase()) {
+         case 'episch':
+          cell.classList.add('cell-epic');
+          break;
+         case 'legendär':
+          cell.classList.add('cell-legendary');
+          break;
+         case 'selten':
+          cell.classList.add('cell-uncommon');
+          break;
+         case 'außergewöhnlich':
+          cell.classList.add('cell-rare');
+          break;
+         }
         break;
       }
     }

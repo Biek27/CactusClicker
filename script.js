@@ -83,10 +83,10 @@ function searchTable() {
           cell.classList.add('cell-legendary');
           break;
          case 'selten':
-          cell.classList.add('cell-uncommon');
+          cell.classList.add('cell-rare');
           break;
          case 'außergewöhnlich':
-          cell.classList.add('cell-rare');
+          cell.classList.add('cell-uncommon');
           break;
          }
         break;

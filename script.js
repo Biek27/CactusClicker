@@ -58,8 +58,8 @@ function searchTable() {
 
   // Iterate through each row in the table
   for (let row of table.rows) {
-    // Skip the header row (assumed to be the first row)
-    if (row.rowIndex === 0) continue;
+      // Skip the header row (the first row)
+      if (row.rowIndex === 0) continue;
 
     // Set the initial display of each row to "none"
     row.style.display = 'none';
@@ -79,7 +79,14 @@ function searchTable() {
 
 
 function applyColors() {
+  
+  // Obtain the table from the DOM
+  let table = document.getElementById('data-table');
+  
+  // Iterate through each cell in the row
   for (let cell of row.cells) {
+    // Skip the header row (the first row)
+      if (row.rowIndex === 0) continue;
   // Remove any Existing Backgroundcolor to avoid unexpected results
   cell.classList.remove('cell-rare', 'cell-epic', 'cell-legendary', 'cell-uncommon', 'cell-common');
 

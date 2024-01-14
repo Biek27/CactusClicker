@@ -108,6 +108,28 @@ function applyColors() {
   }
 }
 
+
+function changeBackgroundColor(element) {
+  // Remove existing background color classes
+  element.classList.remove('cell-uncommon', 'cell-rare', 'cell-epic', 'cell-legendary');
+
+  // Add Backgroundcolors dependent of the cell's Content
+        switch (cell.textContent.toLowerCase()) {
+         case 'episch':
+          element.classList.add('cell-epic');
+          break;
+         case 'legendär':
+          element.classList.add('cell-legendary');
+          break;
+         case 'selten':
+          element.classList.add('cell-rare');
+          break;
+         case 'außergewöhnlich':
+          element.classList.add('cell-uncommon');
+          break;
+         }
+}
+
 function generateTable(items) {
     let tbody = document.getElementById("data-table").getElementsByTagName("tbody")[0];
     let tr, td; 
@@ -137,7 +159,8 @@ function generateTable(items) {
 generateTable(items);
 
 document.addEventListener('DOMContentLoaded', () => {
-  applyColors();
-}
+  const cellElement = document.querySelector('.cell');
+  changeBackgroundColor(cellElement);
+});
                           
 searchTable();

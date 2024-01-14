@@ -81,21 +81,7 @@ function changeBackgroundColor(element) {
   // Remove existing background color classes
   element.classList.remove('cell-uncommon', 'cell-rare', 'cell-epic', 'cell-legendary');
 
-  // Add Backgroundcolors dependent of the cell's Content
-        switch (cell.textContent.toLowerCase()) {
-         case 'episch':
-          element.classList.add('cell-epic');
-          break;
-         case 'legendär':
-          element.classList.add('cell-legendary');
-          break;
-         case 'selten':
-          element.classList.add('cell-rare');
-          break;
-         case 'außergewöhnlich':
-          element.classList.add('cell-uncommon');
-          break;
-         }
+  
 }
 
 function generateTable(items) {
@@ -110,12 +96,27 @@ function generateTable(items) {
         // Create a new row
         tr = document.createElement("tr");
       
-
         // Create and append cells for each item property
         Object.values(item).forEach(value => {
             td = document.createElement("td");
             td.textContent = value;
             tr.appendChild(td);
+
+            // Add a class to the row based on the cell's content
+            switch (value.toLowerCase()) {
+                case 'episch':
+                    tr.classList.add('cell-epic');
+                    break;
+                case 'legendär':
+                    tr.classList.add('cell-legendary');
+                    break;
+                case 'selten':
+                    tr.classList.add('cell-rare');
+                    break;
+                case 'außergewöhnlich':
+                    tr.classList.add('cell-uncommon');
+                    break;
+            }
         });
 
         // Append the row to the table body
@@ -123,12 +124,7 @@ function generateTable(items) {
     });
 }
 
-// Call the function to generate the table using your 'items' array
-generateTable(items);
 
-window.addEventListener('load', () => {
- const cellElement = document.querySelector('.cell');
- changeBackgroundColor(cellElement);
-});
-                          
+// Call the function to generate the table using your 'items' array
+generateTable(items);                         
 searchTable();

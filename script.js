@@ -79,7 +79,7 @@ function searchTable() {
 
 
 function applyColors() {
-
+  for (let cell of row.cells) {
   // Remove any Existing Backgroundcolor to avoid unexpected results
   cell.classList.remove('cell-rare', 'cell-epic', 'cell-legendary', 'cell-uncommon', 'cell-common');
 
@@ -98,6 +98,7 @@ function applyColors() {
           cell.classList.add('cell-uncommon');
           break;
          }
+  }
 }
 
 function generateTable(items) {
@@ -118,12 +119,14 @@ function generateTable(items) {
             td = document.createElement("td");
             td.textContent = value;
             tr.appendChild(td);
-          applyColors();
         });
 
         // Append the row to the table body
         tbody.appendChild(tr);
     });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  applyColors();
 }
 
 // Call the function to generate the table using your 'items' array

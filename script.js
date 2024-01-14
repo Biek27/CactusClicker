@@ -132,6 +132,7 @@ searchTable();
       // Iterate through each cell in the row
     
     for (let cell of row.cells) {
+      console.log(cell.textContent.toLowerCase());
       // Check if the cell contains the filter string
       if (cell.textContent.toLowerCase().indexOf("außergewöhnlich") > -1) {
         row.classList.add('cell-uncommon');

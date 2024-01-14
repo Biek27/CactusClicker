@@ -71,10 +71,19 @@ function searchTable() {
         // If so, show the row by setting its display to "table-row"
         row.style.display = 'table-row';
 
-        // Remove any Existing Backgroundcolor to avoid unexpected results
-        cell.classList.remove('cell-rare', 'cell-epic', 'cell-legendary', 'cell-uncommon', 'cell-common');
+        break;
+      }
+    }
+  }
+}
 
-        // Add Backgroundcolors dependent of the Cell's Content
+
+function applyColors() {
+
+  // Remove any Existing Backgroundcolor to avoid unexpected results
+  cell.classList.remove('cell-rare', 'cell-epic', 'cell-legendary', 'cell-uncommon', 'cell-common');
+
+  // Add Backgroundcolors dependent of the Cell's Content
         switch (cell.textContent.toLowerCase()) {
          case 'episch':
           cell.classList.add('cell-epic');
@@ -89,10 +98,6 @@ function searchTable() {
           cell.classList.add('cell-uncommon');
           break;
          }
-        break;
-      }
-    }
-  }
 }
 
 function generateTable(items) {
@@ -106,12 +111,14 @@ function generateTable(items) {
     items.forEach(item => {
         // Create a new row
         tr = document.createElement("tr");
+      
 
         // Create and append cells for each item property
         Object.values(item).forEach(value => {
             td = document.createElement("td");
             td.textContent = value;
             tr.appendChild(td);
+          applyColors();
         });
 
         // Append the row to the table body

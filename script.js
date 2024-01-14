@@ -1,4 +1,4 @@
-const items = [ 
+const items = [
   { name: 'Stählerner Handschuh', level: 1, rarity: 'Selten', property: '+33 Axtschaden, +1.11% Seelen Ertrag' },
   { name: 'Klassische Lederschulterpolster', level: 1, rarity: 'selten', property: '+0.06 Münz Chance, +1.05% Münz Chance' },
   { name: 'Klassische Lederschultern', level: 1, rarity: 'Außergewöhnlich', property: '+1.04% Drop Chance' },

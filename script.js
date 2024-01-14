@@ -77,13 +77,6 @@ function searchTable() {
   }
 }
 
-function changeBackgroundColor(element) {
-  // Remove existing background color classes
-  element.classList.remove('cell-uncommon', 'cell-rare', 'cell-epic', 'cell-legendary');
-
-  
-}
-
 function generateTable(items) {
     let tbody = document.getElementById("data-table").getElementsByTagName("tbody")[0];
     let tr, td; 
@@ -103,7 +96,7 @@ function generateTable(items) {
             tr.appendChild(td);
 
             // Add a class to the row based on the cell's content
-            switch (value.toLowerCase()) {
+            switch (value.toString().toLowerCase()) {
                 case 'episch':
                     tr.classList.add('cell-epic');
                     break;

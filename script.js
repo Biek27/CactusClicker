@@ -126,9 +126,9 @@ function generateTable(items) {
 // Call the function to generate the table using your 'items' array
 generateTable(items);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const cellElement = document.querySelector('.cell');
-  changeBackgroundColor(cellElement);
+window.addEventListener('load', () => {
+ const cellElement = document.querySelector('.cell');
+ changeBackgroundColor(cellElement);
 });
                           
 searchTable();

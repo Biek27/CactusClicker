@@ -96,7 +96,7 @@ function generateTable(items) {
             tr.appendChild(td);
 
             // Add a class to the row based on the cell's content
-            switch (value.toString().toLowerCase()) {
+            switch (value.toString().trim().toLowerCase()) {
                 case 'episch':
                     tr.classList.add('cell-epic');
                     break;

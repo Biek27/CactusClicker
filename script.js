@@ -125,10 +125,12 @@ function generateTable(items) {
         tbody.appendChild(tr);
     });
 }
-document.addEventListener('DOMContentLoaded', () => {
-  applyColors();
-}
 
 // Call the function to generate the table using your 'items' array
 generateTable(items);
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyColors();
+}
+                          
 searchTable();

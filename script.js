@@ -145,3 +145,5 @@ searchTable();
       if (cell.textContent.toLowerCase().indexOf("legendär") > -1) {
         row.classList.add('cell-legendary');
       }
+    }
+  }

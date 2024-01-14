@@ -77,38 +77,6 @@ function searchTable() {
   }
 }
 
-
-function applyColors() {
-  
-  // Obtain the table from the DOM
-  let table = document.getElementById('data-table');
-  
-  // Iterate through each cell in the row
-  for (let cell of row.cells) {
-    // Skip the header row (the first row)
-      if (row.rowIndex === 0) continue;
-  // Remove any Existing Backgroundcolor to avoid unexpected results
-  cell.classList.remove('cell-rare', 'cell-epic', 'cell-legendary', 'cell-uncommon', 'cell-common');
-
-  // Add Backgroundcolors dependent of the Cell's Content
-        switch (cell.textContent.toLowerCase()) {
-         case 'episch':
-          cell.classList.add('cell-epic');
-          break;
-         case 'legendär':
-          cell.classList.add('cell-legendary');
-          break;
-         case 'selten':
-          cell.classList.add('cell-rare');
-          break;
-         case 'außergewöhnlich':
-          cell.classList.add('cell-uncommon');
-          break;
-         }
-  }
-}
-
-
 function changeBackgroundColor(element) {
   // Remove existing background color classes
   element.classList.remove('cell-uncommon', 'cell-rare', 'cell-epic', 'cell-legendary');

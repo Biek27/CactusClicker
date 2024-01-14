@@ -96,17 +96,17 @@ function generateTable(items) {
             tr.appendChild(td);
 
             // Add a class to the row based on the cell's content
-            switch (value.toString().trim().toLowerCase()) {
-                case 'episch':
+            switch (value.toString().normalize('NFD').toLowerCase().trim()) {
+                case 'episch'.normalize('NFD').toLowerCase().trim():
                     tr.classList.add('cell-epic');
                     break;
-                case 'legendär':
+                case 'legendär'.normalize('NFD').toLowerCase().trim():
                     tr.classList.add('cell-legendary');
                     break;
-                case 'selten':
+                case 'selten'.normalize('NFD').toLowerCase().trim():
                     tr.classList.add('cell-rare');
                     break;
-                case 'außergewöhnlich':
+                case 'außergewöhnlich'.normalize('NFD').toLowerCase().trim():
                     tr.classList.add('cell-uncommon');
                     break;
             }
@@ -116,7 +116,6 @@ function generateTable(items) {
         tbody.appendChild(tr);
     });
 }
-
 
 // Call the function to generate the table using your 'items' array
 generateTable(items);                         

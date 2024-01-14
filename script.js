@@ -13,7 +13,7 @@ const items = [
   { name: 'Sternenflug', level: 1, rarity: 'Legendär', property: '+4 Kritischtrefferchancelevel, +0.06 Münz Chance, +1.06% Münz Chance, +0.05% Essenzen Dropchance' },
   { name: 'Azurblitz', level: 1, rarity: 'Legendär', property: '+50 Basisschaden, +0.04 Charakter Erfahrung, +1.11% Lebensentzug, +1.04% Kritischtrefferchance' },
   { name: 'Sternenlicht Beinkleider', level: 1, rarity: 'Legendär', property: '+4 Kritischtrefferchancelevel, +1.04% Kritischtrefferchance, +44 Axtschaden, +0.05 Respawnrate' },
-  
+   
   { name: 'Mondschatten-Lederschutz', level: 2, rarity: 'Legendär', property: 'Dummy' },
   { name: 'Donnerkraft-Ledergürtel', level: 2, rarity: 'Legendär', property: 'Dummy' },
   { name: 'Mitternachts Beinschützer', level: 2, rarity: 'Legendär', property: 'Dummy' },

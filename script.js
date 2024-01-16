@@ -395,7 +395,8 @@ const items = [
   { name: 'Geistertränenband', floor: 17, rarity: 'Gewöhnlich', attributes: 'dummy' },
   { name: 'Titanstahl Schulterumhänge', floor: 17, rarity: 'Gewöhnlich', attributes: 'dummy' },
   { name: 'Dunkle Vollstreckung', floor: 17, rarity: 'Gewöhnlich', attributes: 'dummy' },
-  { name: 'Donnerkraft-Lederpanzerung', floor: 17, rarity: 'Gewöhnlich', attributes: 'dummy' }, // Add more items as needed
+  { name: 'Donnerkraft-Lederpanzerung', floor: 17, rarity: 'Gewöhnlich', attributes: 'dummy' }, 
+  // Add more items as needed
 ];
 
 function searchTable() {
@@ -476,10 +477,11 @@ searchTable();
 
   // Iterate through each row in the table
   for (let row of table.rows) {
-      // Skip the header row (the first row)
-      if (row.rowIndex === 0) continue;
-      // Iterate through each cell in the row
     
+    // Skip the header row (the first row)
+      if (row.rowIndex === 0) continue;
+    
+    // Iterate through each cell in the row
     for (let cell of row.cells) {
       console.log(cell.textContent.toLowerCase());
       // Check if the cell contains the filter string

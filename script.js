@@ -485,16 +485,16 @@ searchTable();
     for (let cell of row.cells) {
       console.log(cell.textContent.toLowerCase());
       // Check if the cell contains the filter string
-      if (cell.textContent.toLowerCase().indexOf("außergewöhnlich") > -1) {
+      if (cell.textContent.toLowerCase().indexOf("Außergewöhnlich") > -1) {
         row.classList.add('cell-uncommon');
       } 
-      if (cell.textContent.toLowerCase().indexOf("selten") > -1) {
+      if (cell.textContent.toLowerCase().indexOf("Selten") > -1) {
         row.classList.add('cell-rare');
       }
-      if (cell.textContent.toLowerCase().indexOf("episch") > -1) {
+      if (cell.textContent.toLowerCase().indexOf("Episch") > -1) {
         row.classList.add('cell-epic');
       }
-      if (cell.textContent.toLowerCase().indexOf("legendär") > -1) {
+      if (cell.textContent.toLowerCase().indexOf("Legendär") > -1) {
         row.classList.add('cell-legendary');
       }
     }

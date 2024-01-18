@@ -479,7 +479,7 @@ searchTable();
   for (let row of table.rows) {
     
     // Skip the header row (the first row)
-      if (row.rowIndex === 0) continue;
+    //  if (row.rowIndex === 0) continue;
     
     // Iterate through each cell in the row
     for (let cell of row.cells) {
